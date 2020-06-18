@@ -1,8 +1,8 @@
-package foodev.spring.board.dao;
+package spring.foodev.board.dao;
 
 import java.util.List;
 
-import foodev.spring.board.BoardVO;
+import spring.foodev.board.BoardVO;
 
 
 

@@ -1,4 +1,4 @@
-package foodev.spring.board;
+package spring.foodev.board;
 
 public class BoardVO {
 
@@ -6,7 +6,6 @@ public class BoardVO {
 	private int post_id;
 	private String title;
 	private String writer;
-	private String date;
 	private int up_count;
 	private int lookup_count;
 	public String getDivision() {
@@ -33,12 +32,7 @@ public class BoardVO {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
+	
 	public int getUp_count() {
 		return up_count;
 	}
@@ -51,13 +45,7 @@ public class BoardVO {
 	public void setLookup_count(int lookup_count) {
 		this.lookup_count = lookup_count;
 	}
-	@Override
-	public String toString() {
-		return "BoardVO [division=" + division + ", post_id=" + post_id + ", title=" + title + ", writer=" + writer
-				+ ", date=" + date + ", up_count=" + up_count + ", lookup_count=" + lookup_count + "]";
-	}
 	
-
 	
 	
 }
