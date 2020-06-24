@@ -8,6 +8,7 @@ public class BoardVO {
 	private String writer;
 	private int up_count;
 	private int lookup_count;
+	private String content;
 	public String getDivision() {
 		return division;
 	}
@@ -44,6 +45,12 @@ public class BoardVO {
 	}
 	public void setLookup_count(int lookup_count) {
 		this.lookup_count = lookup_count;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	
 	

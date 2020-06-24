@@ -140,7 +140,13 @@
 	</dependency>
 	
 	
-	
+	<!-- 파일확장자 관련 라이브러리  -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		
 	
 	
 			<!-- Mybatis -->
@@ -162,7 +168,7 @@
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.9.10.5</version>
+    <version>2.9.10</version>
 </dependency>
 
 <dependency>

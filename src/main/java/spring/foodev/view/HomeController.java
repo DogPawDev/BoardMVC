@@ -1,10 +1,12 @@
 package spring.foodev.view;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
@@ -17,7 +19,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
 
 import spring.foodev.board.BoardVO;
 import spring.foodev.board.dao.BoardDAO;
@@ -32,6 +37,8 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+
+	
 	@Inject
 	private BoardDAO dao;
 	/**
@@ -41,6 +48,14 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 	logger.info("게시물 작성 ");
 
+	BoardVO vv = new BoardVO();
+	System.out.println(vv);
+	BoardVO bb = vv;
+	System.out.println(bb);
+	bb.setPost_id(1);
+	System.out.println(vv.getPost_id());
+		
+	
 		//System.out.println("dd");
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -72,6 +87,24 @@ public class HomeController {
 		
 		
 		return "hi";
+	}
+	
+	
+	@RequestMapping(value = "/board/uploadSummernoteImageFile", method = RequestMethod.POST)
+	public @ResponseBody HashMap<String, String> createImgUrl(@RequestParam("file") MultipartFile multipartFile ) {
+		
+		String saveFileRoot ="D:\\summernote_image\\";
+		String loadOriginalFileName = multipartFile.getOriginalFilename();
+		String extension = loadOriginalFileName.substring(loadOriginalFileName.lastIndexOf("."));
+		HashMap<String, String> map = new HashMap<String, String>();
+		String saveFileName = UUID.randomUUID() + extension;
+		
+		File targetFile  = new File(saveFileRoot+saveFileName);
+		System.out.println(multipartFile);
+		System.out.println(loadOriginalFileName);
+		map.put("url",saveFileName);
+		
+		return map;
 	}
 	
 
