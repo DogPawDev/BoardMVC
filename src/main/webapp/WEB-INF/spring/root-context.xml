@@ -31,6 +31,7 @@
     <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 </bean>
 
+<context:component-scan base-package="spring.foodev.genral"></context:component-scan>
 <context:component-scan base-package="spring.foodev.board.dao"></context:component-scan>
 	
 		
